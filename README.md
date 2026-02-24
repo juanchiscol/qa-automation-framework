@@ -4,7 +4,7 @@ Framework de automatización de pruebas completo con **UI (Playwright)** y **API
 
 ---
 
-##  Estructura del proyecto
+## 📁 Estructura del proyecto
 
 ```
 qa-automation-framework/
@@ -48,7 +48,7 @@ qa-automation-framework/
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/juanchiscol/qa-automation-framework.git
+git clone https://github.com/tu-usuario/qa-automation-framework.git
 cd qa-automation-framework
 
 # 2. Instalar dependencias
@@ -98,7 +98,7 @@ npm run report
 
 ---
 
-## Escenarios implementados
+## 🧪 Escenarios implementados
 
 ### Opción A – UI (OrangeHRM)
 

@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
-import { AdminUsersPage } from '../../pages/admin-users.page';
-import { AddUserPage } from '../../pages/add-user.page';
-import { loginAsAdmin } from '../../utils/ui.helpers';
-import { newUserData } from '../../fixtures/ui.fixtures';
+import { AdminUsersPage } from '../../pages/admin-users.page.js';
+import { AddUserPage } from '../../pages/add-user.page.js';
+import { loginAsAdmin } from '../../utils/ui.helpers.js';
+import { newUserData } from '../../fixtures/ui.fixtures.js';
 
 test.describe('Create User', () => {
   let adminUsersPage: AdminUsersPage;

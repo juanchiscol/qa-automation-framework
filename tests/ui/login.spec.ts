@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../../pages/login.page';
-import { loginData } from '../../fixtures/ui.fixtures';
-import { ENV } from '../../config/env';
+import { LoginPage } from '../../pages/login.page.js';
+import { loginData } from '../../fixtures/ui.fixtures.js';
+import { ENV } from '../../config/env.js';
 
 test.describe('Login', () => {
   let loginPage: LoginPage;
@@ -18,15 +18,19 @@ test.describe('Login', () => {
     await expect(page.locator('.oxd-userdropdown-name')).toBeVisible();
   });
 
+
   test('TC-L02 | Failed login shows "Invalid credentials" error', async () => {
-    const { username, password } = loginData.invalidCredentials[0];
-    await loginPage.login(username, password);
+    const creds = loginData.invalidCredentials[0];
+    if (!creds) throw new Error('No invalid credentials fixture');
+    await loginPage.login(creds.username, creds.password);
     await loginPage.expectLoginError('Invalid credentials');
   });
 
+
   test('TC-L03 | Login with valid user but wrong password shows error', async () => {
-    const { username, password } = loginData.invalidCredentials[1];
-    await loginPage.login(username, password);
+    const creds = loginData.invalidCredentials[1];
+    if (!creds) throw new Error('No invalid credentials fixture');
+    await loginPage.login(creds.username, creds.password);
     await loginPage.expectLoginError('Invalid credentials');
   });
 

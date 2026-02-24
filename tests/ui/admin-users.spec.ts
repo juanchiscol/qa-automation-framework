@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { AdminUsersPage } from '../../pages/admin-users.page';
-import { loginAsAdmin } from '../../utils/ui.helpers';
+import { AdminUsersPage } from '../../pages/admin-users.page.js';
+import { loginAsAdmin } from '../../utils/ui.helpers.js';
 
 test.describe('Admin – User Management', () => {
   let adminUsersPage: AdminUsersPage;

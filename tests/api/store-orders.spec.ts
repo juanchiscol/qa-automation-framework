@@ -1,5 +1,6 @@
-import { OrderService } from '../../utils/order.service';
-import { orderFixtures, Order } from '../../fixtures/api.fixtures';
+import { OrderService } from '../../utils/order.service.js';
+import { orderFixtures } from '../../fixtures/api.fixtures.js';
+import type { Order } from '../../fixtures/api.fixtures.js';
 
 /**
  * Petstore API – /store/order tests
@@ -10,7 +11,7 @@ import { orderFixtures, Order } from '../../fixtures/api.fixtures';
 describe('Petstore API – Store Orders', () => {
   // Shared state across tests in "CRUD lifecycle" suite
   let createdOrderId: number;
-  const baseOrder = { ...orderFixtures.validOrder };
+  const baseOrder = { ...orderFixtures.validOrder, status: 'placed' as const };
 
   // ─── GET Order ───────────────────────────────────────────────────────────────
 

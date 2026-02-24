@@ -1,5 +1,6 @@
-import axios, { AxiosInstance, AxiosResponse } from 'axios';
-import { ENV } from '../config/env';
+import axios from 'axios';
+import type { AxiosInstance, AxiosResponse } from 'axios';
+import { ENV } from '../config/env.js';
 
 class ApiClient {
   private client: AxiosInstance;

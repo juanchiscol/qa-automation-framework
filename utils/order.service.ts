@@ -1,6 +1,6 @@
-import { petstoreClient } from './api.client';
-import { Order } from '../fixtures/api.fixtures';
-import { AxiosResponse } from 'axios';
+import { petstoreClient } from './api.client.js';
+import type { Order } from '../fixtures/api.fixtures.js';
+import type { AxiosResponse } from 'axios';
 
 export const OrderService = {
   /**

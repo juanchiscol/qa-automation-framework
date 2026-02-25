@@ -1,8 +1,8 @@
 import type { Page, Locator } from '@playwright/test';
 import { expect } from '@playwright/test';
+import { BasePage } from './base.page.js';
 
-export class AdminUsersPage {
-  readonly page: Page;
+export class AdminUsersPage extends BasePage {
   readonly addUserButton: Locator;
   readonly userRoleSelect: Locator;
   readonly searchButton: Locator;
@@ -11,7 +11,7 @@ export class AdminUsersPage {
   readonly tableRows: Locator;
 
   constructor(page: Page) {
-    this.page = page;
+    super(page);
     this.addUserButton = page.getByRole('button', { name: 'Add' });
     this.searchButton = page.getByRole('button', { name: 'Search' });
     this.resetButton = page.getByRole('button', { name: 'Reset' });
@@ -21,9 +21,8 @@ export class AdminUsersPage {
     this.userRoleSelect = page.locator('.oxd-select-text').first();
   }
 
-  async goto(): Promise<void> {
-    await this.page.goto('/web/index.php/admin/viewSystemUsers');
-    await this.page.waitForLoadState('networkidle');
+  async navigate(): Promise<void> {
+    await this.goto('/web/index.php/admin/viewSystemUsers');
   }
 
   async filterByRole(role: string): Promise<void> {
@@ -71,6 +70,6 @@ export class AdminUsersPage {
   }
 
   async expectNoRecordsFound(): Promise<void> {
-    await expect(this.page.locator('.oxd-table-footer')).toContainText('No Records Found');
+    await expect(this.page.locator('.oxd-table-body')).toContainText('No Records Found');
   }
 }

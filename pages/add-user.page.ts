@@ -1,8 +1,8 @@
 import type { Page, Locator } from '@playwright/test';
 import { expect } from '@playwright/test';
+import { BasePage } from './base.page.js';
 
-export class AddUserPage {
-  readonly page: Page;
+export class AddUserPage extends BasePage {
   readonly userRoleSelect: Locator;
   readonly employeeNameInput: Locator;
   readonly statusSelect: Locator;
@@ -13,7 +13,7 @@ export class AddUserPage {
   readonly cancelButton: Locator;
 
   constructor(page: Page) {
-    this.page = page;
+    super(page);
     // Selects in order: User Role, Status
     this.userRoleSelect = page.locator('.oxd-select-text').first();
     this.statusSelect = page.locator('.oxd-select-text').nth(1);

@@ -1,10 +1,8 @@
-
 /** @type {import('ts-jest').JestConfigWithTsJest} */
-export default {
-  preset: 'ts-jest/presets/default-esm',
+module.exports = {
+  preset: 'ts-jest',
   testEnvironment: 'node',
   testMatch: ['**/tests/api/**/*.spec.ts'],
-  extensionsToTreatAsEsm: ['.ts'],
   moduleNameMapper: {
     '^(\\.{1,2}/.*)\\.js$': '$1',
     '@config/(.*)': '<rootDir>/config/$1',
@@ -12,18 +10,7 @@ export default {
     '@fixtures/(.*)': '<rootDir>/fixtures/$1',
   },
   transform: {
-    '^.+\\.tsx?$': [
-      'ts-jest',
-      {
-        useESM: true,
-      },
-    ],
-  },
-  globals: {
-    'ts-jest': {
-      useESM: true,
-      tsconfig: './tsconfig.json',
-    },
+    '^.+\\.tsx?$': 'ts-jest',
   },
   coverageDirectory: 'coverage',
   collectCoverageFrom: ['utils/**/*.ts', 'config/**/*.ts'],

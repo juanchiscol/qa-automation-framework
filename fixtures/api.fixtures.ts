@@ -1,4 +1,4 @@
-export const orderFixtures = {
+const orderFixtures = {
   validOrder: {
     id: 0, // Will be assigned by the server or overridden in tests
     petId: 10,
@@ -11,9 +11,9 @@ export const orderFixtures = {
   statuses: ['placed', 'approved', 'delivered'] as const,
 };
 
-export type OrderStatus = typeof orderFixtures.statuses[number];
+type OrderStatus = typeof orderFixtures.statuses[number];
 
-export interface Order {
+interface Order {
   id: number;
   petId: number;
   quantity: number;
@@ -21,3 +21,6 @@ export interface Order {
   status: OrderStatus;
   complete: boolean;
 }
+
+module.exports = { orderFixtures };
+// Las exportaciones de tipos solo son relevantes para TypeScript y no afectan el runtime de CommonJS.

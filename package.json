@@ -7,7 +7,7 @@
   "scripts": {
     "test": "npm run test:all",
     "test:all": "npm run test:api && npm run test:ui",
-    "test:api": "jest --config=jest.config.ts",
+    "test:api": "jest --config=jest.config.cjs",
     "test:ui": "playwright test",
     "test:ui:headed": "playwright test --headed",
     "test:ui:parallel": "playwright test -w 4",

@@ -2,7 +2,7 @@ import { petstoreClient } from './api.client.js';
 import type { Order } from '../fixtures/api.fixtures.js';
 import type { AxiosResponse } from 'axios';
 
-export const OrderService = {
+const OrderService = {
   /**
    * GET /store/order/{orderId}
    */
@@ -31,3 +31,5 @@ export const OrderService = {
     return petstoreClient.get<Record<string, number>>('/store/inventory');
   },
 };
+
+module.exports = { OrderService };

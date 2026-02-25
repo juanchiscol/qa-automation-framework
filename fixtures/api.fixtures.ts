@@ -13,7 +13,7 @@ const orderFixtures = {
 
 type OrderStatus = typeof orderFixtures.statuses[number];
 
-interface Order {
+export interface Order {
   id: number;
   petId: number;
   quantity: number;
